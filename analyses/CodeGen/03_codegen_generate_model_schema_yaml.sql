@@ -7,7 +7,9 @@ into a schema.yml file for documents and test.
 		• model_names (required): The model(s) you wish to generate YAML for.	  
 -- A. First, create the models sql files. e.g. customers.sql  stg_orders.sql
 -- B. Compile this file in Cloud IDE -- materialized argument is optional 
+
 #}
+
 {{ codegen.generate_model_yaml(model_names=["customers", "stg_orders"]) }}
 
 {#
@@ -15,10 +17,11 @@ into a schema.yml file for documents and test.
    directory and/or prefix to get a list of all matching models, to be passed 
    into model_names list.
 -- For Examples: 
-#}
-{# To get all stg_* models in the /models or its subfolders: use directory='' 
+
+  To get all stg_* models in the /models or its subfolders: use directory='' 
 or directory=None  or without directory argument 
 #}
+
 {% set models_to_generate = codegen.get_models(prefix="stg_") %}
 {{ codegen.generate_model_yaml(model_names=models_to_generate) }}
 
@@ -70,3 +73,4 @@ models:
 
        ... rest of all columns
 #}
+

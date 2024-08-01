@@ -1,20 +1,19 @@
 
-/*
+{# 
 This macro generates the source yaml file:
 
 Arguments
 	• schema_name  (required): The schema name that contains your source data
 	• database_name (optional, default=target.database): The database that your source data is in.
 	• table_names     (optional, default=none (all tables) ): A list of tables that you want to generate the source definitions for.
-
- */
-
---Compile this file in Cloud IDE 
+ 
+ --Compile this file in Cloud IDE 
+ #}
+ 
 {{ codegen.generate_source(schema_name= 'jaffle_shop', database_name= 'raw') }}
 
-
-/*
-Or Alternative, run the command below:
+{# 
+   Or Alternative, run the command below:
 
 -- $ dbt run-operation generate_source --args '{"schema_name": "jaffle_shop", "database_name": "raw", "table_names":["table_1", "table_2"]}'   
 -- $ dbt run-operation generate_source --args '{"schema_name": "jaffle_shop", "database_name": "raw"}'   
@@ -37,4 +36,5 @@ sources:
       - name: payment
 
 Notes: Missing the line: schema: jaffle_shop
- */
+ 
+ #}
