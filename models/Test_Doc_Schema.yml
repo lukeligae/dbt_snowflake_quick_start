@@ -13,6 +13,13 @@ models:
         description: NULL when a customer has not yet placed an order.
       - name: first_name
         description: "{{ doc('state_code_name') }}"
+      - name: last_name
+        description: |
+          ### Country Code and Name  List
+          * CN:  China
+          * US: United States
+          * JP: Japan
+
 
   - name: stg_customers
     description: This model cleans up customer data
